@@ -4,7 +4,7 @@ import user from "./assets/user.svg"
 const form = document.querySelector("form");
 const chatContainer = document.querySelector("#chat_container");
 
-let loadInterval;
+let loadInterval
 
 function loader(element){
   // "..."
@@ -29,32 +29,31 @@ function typeText(element, text){
   },10)
 }
 
-function generateUniqueId(){
-  const timeStamp = Date.now();
-  const randNum = Math.random;
-  const hexaDecString =randNum.toString(16);
+function generateUniqueId() {
+  const timestamp = Date.now();
+  const randomNumber = Math.random();
+  const hexadecimalString = randomNumber.toString(16);
 
-  return `id-${timeStamp}-${hexaDecString}`;
+  return `id-${timestamp}-${hexadecimalString}`;
 }
 
-function chatStripe(isAi,value,id){
-  return(
-    `
-      <div class = "wrapper ${isAi && "ai"}">
-        <div class"chat">
-          <div className = "profile">
-
-            <img src= "${isAi?bot:user}"
-              alt="${isAi?"bot":"user"}"
-            >
-            </img>
-          </div>
-          <div class="message" id = ${id}>${value}</div>
+function chatStripe(isAi, value, uniqueId) {
+    return (
+        `
+        <div class="wrapper ${isAi && 'ai'}">
+            <div class="chat">
+                <div class="profile">
+                    <img 
+                      src=${isAi ? bot : user} 
+                      alt="${isAi ? 'bot' : 'user'}" 
+                    />
+                </div>
+                <div class="message" id=${uniqueId}>${value}</div>
+            </div>
         </div>
-      </div>
     `
-  )
-} 
+    )
+}
 
 const handleSubmit = async(e)=>{
   e.preventDefault();
