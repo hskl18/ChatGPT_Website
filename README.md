@@ -22,11 +22,7 @@ Open another terminal:
   $ npm run dev
 ```
 
-To upload:
-
-```bash
-  $ npm run build 
-```
+If npm not install, to download node.js
 
 ---
 
